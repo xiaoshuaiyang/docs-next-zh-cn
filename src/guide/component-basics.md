@@ -282,7 +282,7 @@ methods: {
 等价于：
 
 ```html
-<input :value="searchText" @input="searchText = $event.target.value" />
+<input :value="searchText" @input="searchText = $event.detail.value" />
 ```
 
 当用在组件上时，`v-model` 则会这样：
@@ -312,7 +312,7 @@ app.component('custom-input', {
   template: `
     <input
       :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
+      @input="$emit('update:modelValue', $event.detail.value)"
     >
   `
 })
